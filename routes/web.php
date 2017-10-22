@@ -15,16 +15,17 @@ Route::get('/', function () {
     return view('login');
 });
 
+Auth::routes();
 
 // Route::view('register', 'register')
 // 	->name('register')
 // 	->middleware('auth')
 // ;
 
-// Route::view('home', 'home')
-// 	->name('home')
-// 	// ->middleware('auth')
-// ;
+Route::view('home', 'home')
+	->name('home')
+	->middleware('auth')
+;
 
 Route::view('orders', 'orders')
 	->name('orders')
@@ -70,6 +71,5 @@ Route::view('reports', 'reports')
 	->name('reports')
 	->middleware('auth')
 ;
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
