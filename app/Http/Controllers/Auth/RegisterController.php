@@ -63,8 +63,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $role = App\Role::findFirstOrFail();
-        $userType = App\UserType::findFirstOrFail();
+        $role = \App\Role::findFirstOrFail();
+        $userType = \App\UserType::findFirstOrFail();
 
         return User::create([
             'name' => $data['name'],
