@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
+
+Route::view('register', 'register')
+	->name('register')
+	->middleware('auth')
+;
 
 Route::view('home', 'home')
 	->name('home')
@@ -46,10 +51,10 @@ Route::view('expenses', 'expenses')
 	->middleware('auth')
 ;
 
-Route::view('salaries', 'salaries')
-	->name('salaries')
-	->middleware('auth')
-;
+// Route::view('salaries', 'salaries')
+// 	->name('salaries')
+// 	->middleware('auth')
+// ;
 
 Route::view('employees', 'employees')
 	->name('employees')
