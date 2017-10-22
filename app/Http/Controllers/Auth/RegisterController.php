@@ -62,10 +62,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $role = App\Role::findFirstOrFail();
+        $userType = App\UserType::findFirstOrFail();
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => bcrypt($data['password'],
+            'user_type_id' => $userType->id,
+            'role_id' => $role->id),
         ]);
     }
 }
