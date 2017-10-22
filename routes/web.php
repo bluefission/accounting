@@ -70,3 +70,6 @@ Route::view('reports', 'reports')
 	->name('reports')
 	->middleware('auth')
 ;
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
