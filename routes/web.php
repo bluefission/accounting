@@ -21,10 +21,10 @@ Route::get('/', function () {
 // 	->middleware('auth')
 // ;
 
-Route::view('home', 'home')
-	->name('home')
-	// ->middleware('auth')
-;
+// Route::view('home', 'home')
+// 	->name('home')
+// 	// ->middleware('auth')
+// ;
 
 Route::view('orders', 'orders')
 	->name('orders')
