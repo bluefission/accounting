@@ -16,14 +16,14 @@ Route::get('/', function () {
 });
 
 
-Route::view('register', 'register')
-	->name('register')
-	->middleware('auth')
-;
+// Route::view('register', 'register')
+// 	->name('register')
+// 	->middleware('auth')
+// ;
 
 Route::view('home', 'home')
 	->name('home')
-	->middleware('auth')
+	// ->middleware('auth')
 ;
 
 Route::view('orders', 'orders')
