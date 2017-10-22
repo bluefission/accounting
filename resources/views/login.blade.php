@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Accounting</title>
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +59,9 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="home.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <a href="#" class="btn btn-lg btn-success btn-block">Login</a>
+                                <a href="{{ route('register') }}">Register</a>
+
                             </fieldset>
                         </form>
                     </div>
