@@ -61,13 +61,13 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function TestSalariesPageCodeIs200()
-    {
+    // public function TestSalariesPageCodeIs200()
+    // {
 
-        $response = $this->get('/salaries');
+    //     $response = $this->get('/salaries');
 
-        $response->assertStatus(200);
-    }
+    //     $response->assertStatus(200);
+    // }
 
     public function TestEmployeesPageCodeIs200()
     {

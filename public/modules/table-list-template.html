@@ -1,0 +1,114 @@
+            <!-- Main list goes here -->
+            <!--
+            Naming conventions
+            Table Body ID: <table-name>-list
+            Column classes: <field_name>
+            New Button ID: new-<table-name>-btn
+            //-->
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Table Name</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <button type="button" id="new-table-name-btn" class="btn btn-success">New...</button>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
+                      <thead>
+                        <tr>
+                         <th><input type="checkbox" id="check-all" value="" class="flat"></th>
+                          <th>Informative Field Name 1</th>
+                          <th>Informative Field Name 2</th>
+                          <th>Informative Field Name 3</th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody id="table-name-list">
+                        <tr class="table-row">
+                          <td>
+                           <input type="checkbox" id="check-all" class="item-id flat">
+                          </td>
+                          <td class="field-name-1">Sample data</td>
+                          <td class="field-name-2"></td>
+                          <td class="field-name-3"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                        <a href="#" id="delete-table-name-btn">Delete Selected</a>
+                  </div>
+                  <div class="row"><div class="col-sm-5"><div class="dataTables_info" id="datatable_info" role="status" aria-live="polite" style="display:none;">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate"><ul class="pagination"><li class="paginate_button previous" id="datatable_previous"><a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button number"><a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next" id="datatable_next"><a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">Next</a></li></ul></div></div></div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Data Edit Form -->
+            <!--
+            Naming conventions
+            Div ID: <table-name>-edit
+            Form ID: <table-name>-form
+            Labels: Form Field (omit word "id" if present)
+            Form fields name: <field_name>
+            Form fields class: <field_name>
+            //-->
+            <div style="display:none;"> <!-- keeps forms hidden until use -->
+              <div id="table-name-edit">
+                <div class="x_content">
+                  <br />
+                  <form id="table-name-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name">Field Name<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="field_name" required="required" class="field_name form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name_2">Field Name 2<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="field_name_2" required="required" class="field_name_2 form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name_3">Field Name 3 <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select name="field_name_3" class="field_name_3 form-control" required>
+                          <option value="">Choose..</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group control-buttons">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-primary btn-cancel" type="button">Cancel</button>
+                        <button type="submit" id="save-role-btn" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- end modules -->
+<script>
+$(document).ready( function() {
+  // use active controller for navigation, or instantiate new onctoller on load
+  // var controller = SiteController.pageController === null ? new TableNameManageController() : $.extend({}, SiteController.pageController);
+  var controller = new TableNameManageController();
+  
+  // explicity set (or reset) the site controller
+  SiteController.pageController = controller;
+
+  // Activate the "onReady" method to prepare the form
+  SiteController.pageController.onReady();
+});
+</script>

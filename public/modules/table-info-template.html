@@ -1,0 +1,324 @@
+            <!-- start modules -->
+            <!-- Main form goes here -->
+            <!--
+            Naming conventions
+            Form ID: <table>-form
+            Labels: Form Field (omit word "id" if present)
+            Form fields name: <field_name>
+            Form fields ID: <field_name>
+
+            Datatype conventions
+            Standard fields should be text boxes
+            Enabled/Disabled or binary fields should be checkboxes
+            Foreign Key fields should be select boxes
+            //-->
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Table Name</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form id="table-name" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name">Field Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="field_name" name="field_name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button">Cancel</button>
+                          <button type="submit" id="save-btn" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Main Form -->
+
+            <!-- Sub-lists -->
+            <!--
+            Naming conventions
+            Table Body ID: <foreign-table-name>-list
+            Column classes: <field_name>
+            New Button ID: new-<foreign-table-name>-btn
+            //-->
+
+            <!-- Primary sub-list -->
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Foreign Table Name</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <button type="button" id="new-foreign-table-name-btn" class="btn btn-success">New...</button>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table class="table table-striped table-bordered bulk_action">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" id="check-all" class="flat"></th>
+                          <th>Informative Field 1</th>
+                          <th>Informative Field 2</th>
+                          <th>Informative Field 3</th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody id="foreign-table-name-list">
+                        <tr class="table-row">
+                          <td>
+                           <input type="checkbox" class="flat item-id">
+                          </td>
+                          <td class="field_name_1">Sample Data</td>
+                          <td class="field_name_2">Sample Data</td>
+                          <td class="field_name_3">Sample Data</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                        <a href="#" id="delete-foreign-table-name-btn">Delete Selected</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- / Primary Sub List -->
+
+            <div class="row">
+              <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Table Name 2</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <button type="button" id="new-foreign-table-name-2-btn" class="btn btn-success">New...</button>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table class="table table-striped table-bordered bulk_action">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" id="check-all" class="flat"></th>
+                          <th>Informative Field 1</th>
+                          <th>Informative Field 2</th>
+                          <th>Informative Field 3</th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody id="foreign-table-name-2-list">
+                        <tr class="table-row">
+                          <td>
+                           <input type="checkbox" class="flat item-id">
+                          </td>
+                          <td class="field_name_1">Sample Data</td>
+                          <td class="field_name_2">Sample Data</td>
+                          <td class="field_name_3">Sample Data</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                        <a href="#" id="delete-foreign-table-name-2-btn">Delete Selected</a>
+                  </div>
+                </div>
+              </div> 
+
+              <div class="row">
+              <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Table Name 2</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <button type="button" id="new-foreign-table-name-3-btn" class="btn btn-success">New...</button>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table class="table table-striped table-bordered bulk_action">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" id="check-all" class="flat"></th>
+                          <th>Informative Field 1</th>
+                          <th>Informative Field 2</th>
+                          <th>Informative Field 3</th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody id="foreign-table-name-3-list">
+                        <tr class="table-row">
+                          <td>
+                           <input type="checkbox" class="flat item-id">
+                          </td>
+                          <td class="field_name_1">Sample Data</td>
+                          <td class="field_name_2">Sample Data</td>
+                          <td class="field_name_3">Sample Data</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                        <a href="#" id="delete-foreign-table-name-3-btn">Delete Selected</a>
+                  </div>
+                </div>
+              </div>   
+
+            </div>
+
+            <!-- Sub-list Data Edit Forms -->
+            <!--
+            Naming conventions
+            Div ID: <foreign-table-name>-edit
+            Form ID: <foreign-table-name>-form
+            Labels: Form Field (omit word "id" if present)
+            Form fields name: <field_name>
+            Form fields class: <field_name>
+            //-->
+            <div style="display:none;"> <!-- keeps forms hidden until use -->
+              <div id="foreign-table-name-edit">
+                <div class="x_content">
+                  <br />
+                  <form id="foreign-table-name-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name">Field Name<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="field_name" required="required" class="field_name form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name_2">Field Name 2<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="field_name_2" required="required" class="field_name_2 form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name_3">Field Name 3 <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select name="field_name_3" class="field_name_3 form-control" required>
+                          <option value="">Choose..</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group control-buttons">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-primary btn-cancel" type="button">Cancel</button>
+                        <button type="submit" id="save-role-btn" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+
+              <div id="foreign-table-name-2-edit">
+                <div class="x_content">
+                  <br />
+                  <form id="foreign-table-name-2-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name">Field Name<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="field_name" required="required" class="field_name form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name_2">Field Name 2<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="field_name_2" required="required" class="field_name_2 form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name_3">Field Name 3 <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select name="field_name_3" class="field_name_3 form-control" required>
+                          <option value="">Choose..</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group control-buttons">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-primary btn-cancel" type="button">Cancel</button>
+                        <button type="submit" id="save-role-btn" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+
+              <div id="foreign-table-name-3-edit">
+                <div class="x_content">
+                  <br />
+                  <form id="foreign-table-name-3-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name">Field Name<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="field_name" required="required" class="field_name form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name_2">Field Name 2<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="field_name_2" required="required" class="field_name_2 form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="field_name_3">Field Name 3 <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select name="field_name_3" class="field_name_3 form-control" required>
+                          <option value="">Choose..</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group control-buttons">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-primary btn-cancel" type="button">Cancel</button>
+                        <button type="submit" id="save-role-btn" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- end modules -->
+<script>
+$(document).ready( function() {
+  // use active controller for navigation, or instantiate new onctoller on load
+  var controller = SiteController.pageController === null ? new TableNameInfoController() : $.extend({}, SiteController.pageController);
+  
+  // explicity set (or reset) the site controller
+  SiteController.pageController = controller;
+
+  // Activate the "onReady" method to prepare the form
+  SiteController.pageController.onReady();
+});
+</script>	
