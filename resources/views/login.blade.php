@@ -43,7 +43,7 @@
                     </div>
                     <div class="panel-body">
                         <form role="form">
-                            {{ csrf_field }}
+                            {{ csrf_field() }}
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
