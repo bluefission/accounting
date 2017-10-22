@@ -73,7 +73,7 @@ class CreateAccountingTables extends Migration
                 ->references('id')->on('items')
                 ->onDelete('cascade');
 
-            $table->integer('quantity')
+            $table->integer('quantity');
             $table->text('notes');
 
             $table->timestamps();
