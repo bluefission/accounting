@@ -105,6 +105,11 @@
                             <a href="{{ route('home') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
+                            <a href="{{ route('ledger') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Ledger</a>
+                        </li>
+                        
+                        <!--
+                        <li>
                             <a href="{{ route('orders') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Orders</a>
                         </li>
                         <li>
@@ -115,11 +120,11 @@
                         </li>
                         <li>
                             <a href="{{ route('employees') }}"><i class="fa fa-wrench fa-fw"></i> Users</a>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="{{ route('settings') }}"><i class="fa fa-sitemap fa-fw"></i> Settings</a>
                         </li>
+                        -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -165,7 +170,14 @@
     <script type="text/javascript" src="js/dashboard-ui/modal-form.js"></script>
 
     <script type="text/javascript" src="js/dashboard-ui/pagination.js"></script>
+    <script type="text/javascript" src="js/site-viewmodel.js"></script>
+    <script type="text/javascript" src="js/site-controller.js"></script>
 
+    <script type="text/javascript" src="js/cache.js"></script>
+    <script type="text/javascript" src="js/hud.js"></script>
+    <script type="text/javascript" src="js/sdk-bridge.js"></script>
+    <script type="text/javascript" src="js/accounting-app.js"></script>
+    <script type="text/javascript" src="js/accounting-app-ext.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>

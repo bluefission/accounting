@@ -33,7 +33,8 @@
                                     </tr>
                                 </thead>
                                 <tbody id="user-list">
-                                    <tr class="odd gradeX">
+                                    <tr class="table-row gradeX">
+                                        <input type="hidden" name="item_id">
                                         <td class="last_name"></td>
                                         <td class="first_name"></td>
                                         <td class="phone"></td>
@@ -61,6 +62,21 @@
     <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
     <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="js/controllers/user-manage-controller.js"></script>
+    <script src="js/viewmodels/user-viewmodel.js"></script>
+    <script>
+    $(document).ready( function() {
+      // use active controller for navigation, or instantiate new onctoller on load
+      // var controller = SiteController.pageController === null ? new TableNameManageController() : $.extend({}, SiteController.pageController);
+      var controller = new UserManageController();
+      
+      // explicity set (or reset) the site controller
+      SiteController.pageController = controller;
+
+      // Activate the "onReady" method to prepare the form
+      SiteController.pageController.onReady();
+    });
+    </script>
      <!-- <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({

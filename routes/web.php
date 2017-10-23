@@ -29,6 +29,11 @@ Route::view('home', 'home')
 	->middleware('auth')
 ;
 
+Route::view('ledger', 'ledger')
+	->name('ledger')
+	->middleware('auth')
+;
+
 Route::view('orders', 'orders')
 	->name('orders')
 	->middleware('auth')
@@ -104,8 +109,20 @@ Route::post('api/accounts', 'Api\AccountController@store');
 Route::put('api/accounts/{account}', 'Api\AccountController@update');
 Route::delete('api/accounts/{account}', 'Api\AccountController@delete');
 
+Route::get('api/users', 'Api\UserController@index');
+Route::get('api/users/{account}', 'Api\UserController@show');
+Route::post('api/users', 'Api\UserController@store');
+Route::put('api/users/{account}', 'Api\UserController@update');
+Route::delete('api/users/{account}', 'Api\UserController@delete');
+
 Route::get('api/settings', 'Api\SettingController@index');
 Route::get('api/settings/{setting}', 'Api\SettingController@show');
 Route::post('api/settings', 'Api\SettingController@store');
 Route::put('api/settings/{setting}', 'Api\SettingController@update');
 Route::delete('api/settings/{setting}', 'Api\SettingController@delete');
+
+Route::get('api/line_items', 'Api\LineItemController@index');
+Route::get('api/line_items/{line_item}', 'Api\LineItemController@show');
+Route::post('api/line_items', 'Api\LineItemController@store');
+Route::put('api/line_items/{line_item}', 'Api\LineItemController@update');
+Route::delete('api/line_items/{line_item}', 'Api\LineItemController@delete');

@@ -15,8 +15,7 @@ class OrderController extends Controller
     
     public function index(Request $request)
     {
-        // return "Hello";
-        return Order::all();
+        $orders = Order::all();
     }
 
     public function show(Order $order)
@@ -44,4 +43,5 @@ class OrderController extends Controller
 
         return response()->json(null, 204);
     }
+
 }

@@ -1,6 +1,6 @@
-function TableNameViewModel(view) {
-	this.TableNameView = view;
-    this.TableNameData = {};
+function UserViewModel(view) {
+	this.UserView = view;
+    this.UserData = {};
 	this.CurrentSubData = [];
     this.ForeignTableDataList1 = [];
     this.ForeignTableDataList2 = [];
@@ -16,50 +16,48 @@ function TableNameViewModel(view) {
  //    });
 }
 
-TableNameViewModel.prototype.Start = function() {
-	this.GetTableNamesAsync();
+UserViewModel.prototype.Start = function() {
+	this.GetUsersAsync();
 };
-TableNameViewModel.prototype.SearchTableNames = function( keyword ) {
-	PetricsApp.TableNamesFindAsync(keyword, this.OnTableNamesRetrieved.bind(this) )
-};
-
-TableNameViewModel.prototype.LoadData = function() {
-    Petrics.SDK.Models.SpeciesKind.cctor();
-    
-    PetricsApp.TableNameAspectCategoriesGetAsync(null, true, false, 0, 300, this.OnAspectCategoriesRetrieved.bind(this));
+UserViewModel.prototype.SearchUsers = function( keyword ) {
+	AccountingApp.UsersFindAsync(keyword, this.OnUsersRetrieved.bind(this) );
 };
 
-TableNameViewModel.prototype.GetTableNamesAsync = function () {
-    PetricsApp.TableNamesGetAsync(null, true, false, this.Skip, this.Take, this.OnTableNamesRetrieved.bind(this));
+UserViewModel.prototype.LoadData = function() {
+    AccountingApp.UserAspectCategoriesGetAsync(0, 300, this.OnAspectCategoriesRetrieved.bind(this));
 };
 
-TableNameViewModel.prototype.GetForeignTableDataList1Async = function () {
-    PetricsApp.TableNamesGetAsync(null, true, false, this.Skip, this.Take, this.OnForeignTableDataList1Retrieved.bind(this));
+UserViewModel.prototype.GetUsersAsync = function () {
+    AccountingApp.UsersGetAsync(this.Skip, this.Take, this.OnUsersRetrieved.bind(this));
 };
 
-TableNameViewModel.prototype.GetForeignTableDataList2Async = function () {
-    PetricsApp.TableNamesGetAsync(null, true, false, this.Skip, this.Take, this.OnForeignTableDataList2Retrieved.bind(this));
+UserViewModel.prototype.GetForeignTableDataList1Async = function () {
+    AccountingApp.UsersGetAsync(this.Skip, this.Take, this.OnForeignTableDataList1Retrieved.bind(this));
+};
+
+UserViewModel.prototype.GetForeignTableDataList2Async = function () {
+    AccountingApp.UsersGetAsync(this.Skip, this.Take, this.OnForeignTableDataList2Retrieved.bind(this));
 };
 
 // Async Callbacks
-TableNameViewModel.prototype.OnForeignTableDataList1Retrieved = function(data) {
+UserViewModel.prototype.OnForeignTableDataList1Retrieved = function(data) {
     this.ForeignTableDataList1 = data.responseJSON.items;
-    this.TableNameView.BindData();
+    this.UserView.BindData();
 };
 
-TableNameViewModel.prototype.OnForeignTableDataList2Retrieved = function(data) {
+UserViewModel.prototype.OnForeignTableDataList2Retrieved = function(data) {
     this.ForeignTableDataList2 = data.responseJSON.items;
-    this.TableNameView.BindData();
+    this.UserView.BindData();
 };
 
-TableNameViewModel.prototype.OnTableNamesRetrieved = function(data, status) {
+UserViewModel.prototype.OnUsersRetrieved = function(data, status) {
 	try {
 		data = data.responseJSON;
 		
-        //this.TableNames = data.items
-        this.TableNameData = data;
+        //this.Users = data.items
+        this.UserData = data;
 
-	    this.TableNameView.BindData();
+	    this.UserView.BindData();
     } catch( ex ) {
     	console.log(ex);
     }

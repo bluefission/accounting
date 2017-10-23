@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class OrderItems extends Model
 {
 	// protected $table = '';
     //
-    public function items() {
+    public function order() {
         // return "Hello";
-    	return $this->hasMany('App\OrderItems');
+    	return $this->belongsTo('App\Order');
     }
 }

@@ -5,9 +5,12 @@ SDKBridge = {};
 // executeAsync: Required
 
 SDKBridge.executeAsync = function (baseUrl, resourceUrl, method, body, parameters, headers, contentType) {
-
     var data = null;
     if (body) {
+
+        if (method.toLowerCase() != 'get') {
+            body._token = $('[name="_token"]').val();
+        }
         data = JSON.stringify(body)
     } else {
         data = SDKBridge.mapKeyValue(parameters);

@@ -15,7 +15,6 @@ class ExpenseController extends Controller
     
     public function index(Request $request)
     {
-        // return "Hello";
         return Expense::all();
     }
 

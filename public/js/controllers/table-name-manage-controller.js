@@ -5,7 +5,6 @@ function TableNameManageController() {
 	this.Route = {}; // set to blank object, will be the currently edited object
 	var self = this;
 
-	System.Guid.cctor(); // Instatiate GUID object to make comparisons
 }
 
 TableNameManageController.prototype.onReady = function() {

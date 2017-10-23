@@ -19,7 +19,7 @@ var AccountingApp = {
     Initialize: function() {
         // Check for dev environment
         if(window.location.href.indexOf("file://") > -1 || window.location.href.indexOf("bluefission") > -1) {
-            this.ApiBaseUrl = "https://blue-acct.herokuapp.com";
+            this.ApiBaseUrl = "/api";
         }
         this.AppPreferences = this.CacheHost.PersistentDataGet(false, CACHE_FILENAME_APP_PREFS);
         if (this.AppPreferences == null)
@@ -497,8 +497,68 @@ var AccountingApp = {
         // Not using aggregate exceptions
         return false;
     },
-    ,
     LogError: function( ex, methodName ) {
         console.log( methodName+": "+ex ); // TODO: Make this actually log something later
+    },
+    ExecuteAsync: function (resource, method, request, parameters) {
+        var sdkBridge = SDKBridge;
+        method = method || 'GET';
+        var body = request || null;
+        // var headers = request.headers || {};
+        parameters = parameters || {};
+
+        // var jsonBody = null;
+        // var headers = new {}
+        // var parameters = null;
+
+        // // body
+        // if (request.JsonBody != null) {
+        //     jsonBody = request.GetData();
+        // }
+
+        // //parameters
+        // if (request.Parameters.get_Values().System$Collections$Generic$ICollection$1$get_Count() > 0) {
+        //     parameters = new (System.Collections.Generic.List$1(System.Collections.Generic.KeyValuePair$2(String, 
+        //         System.Object)).ctor)();
+        //     var $iter = request.Parameters;
+        //     var $enumerator = $iter.System$Collections$IEnumerable$GetEnumerator();
+        //     while ($enumerator.System$Collections$IEnumerator$MoveNext()) {
+        //         var item = $enumerator.System$Collections$IEnumerator$get_Current();
+        //         parameters.Add(item);
+        //     }
+        // }
+
+        // // custom headers
+        // if (this.get_CustomHeaders() != null) {
+        //     for (var $i = 0, $a = this.get_CustomHeaders(), $length = $a.storage.length; $i != $length; $i++) {
+        //         var item = $a.storage[$i];
+        //         headers.Add(item);
+        //     }
+        // }
+
+        // // auth headers
+        // if (!String.IsNullOrEmpty(this.ApplicationKey) && !String.IsNullOrEmpty(this.ApplicationSecret)) {
+        //     headers.Add(new (System.Collections.Generic.KeyValuePair$2(String, String).ctor$1)($t.API_PARAM_KEY, 
+        //         this.ApplicationKey));
+        //     headers.Add(new (System.Collections.Generic.KeyValuePair$2(String, String).ctor$1)($t.API_PARAM_SIG, 
+        //         this.get_SignatureGenerator().CreateSignature(this.ApplicationKey, this.ApplicationSecret)));
+        // }
+
+        return sdkBridge.executeAsync(this.ApiBaseUrl, resource, method, body, parameters);
+    },
+    GetAsync: function(resource, skip, take) {
+        return this.ExecuteAsync(resource, 'GET', null, {storage: [{key: 'skip', value: skip}, {key:'take', value: take}]});
+    },
+    FindAsync: function(resource, id, skip, take) {
+        return this.ExecuteAsync(resource+'/'+id, 'GET');
+    },
+    PostAsync: function(resource, object) {
+        return this.ExecuteAsync(resource, 'POST', object);
+    },
+    UpdateAsync: function(resource, object) {
+        return this.ExecuteAsync(resource+'/'+object.id, 'PUT', object);
+    },
+    DeleteAsync: function(resource, id) {
+        return this.ExecuteAsync(resource+'/'+object.id, 'DELETE');
     }
 };
