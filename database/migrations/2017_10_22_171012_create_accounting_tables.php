@@ -175,6 +175,7 @@ class CreateAccountingTables extends Migration
             $table->string('entitlements')
                 ->nullable();
             $table->timestamps();
+        });
     }
 
     /**
