@@ -124,31 +124,6 @@ class CreateAccountingTables extends Migration
             $table->string('name');
             $table->timestamps();
         });
-
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('phone');
-
-            $table->integer('address_id')
-                ->unsigned()
-                ->foreign('address_id')
-                ->references('id')->on('addresses')
-                ->onDelete('cascade');
-
-            $table->integer('role_id')
-                ->unsigned()
-                ->foreign('role_id')
-                ->references('id')->on('roles')
-                ->onDelete('cascade');
-
-            $table->integer('user_type_id')
-                ->unsigned()
-                ->foreign('user_type_id')
-                ->references('id')->on('user_types')
-                ->onDelete('cascade');
-            $table->string('entitlements');
-        });
     }
 
     /**

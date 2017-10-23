@@ -19,7 +19,7 @@ var AccountingApp = {
     Initialize: function() {
         // Check for dev environment
         if(window.location.href.indexOf("file://") > -1 || window.location.href.indexOf("bluefission") > -1) {
-            this.ApiBaseUrl = "https://ozzyaccounting.herokuapp.com";
+            this.ApiBaseUrl = "https://blue-acct.herokuapp.com";
         }
         this.AppPreferences = this.CacheHost.PersistentDataGet(false, CACHE_FILENAME_APP_PREFS);
         if (this.AppPreferences == null)

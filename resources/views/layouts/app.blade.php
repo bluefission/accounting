@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}n">
+<html lang="{{ app()->getLocale() }}">
 
 <head>
 

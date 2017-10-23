@@ -1,5 +1,11 @@
 <?php
 
+use \App\Http\Controllers\Api\OrderController;
+use \App\Http\Controllers\Api\ExpenseController;
+use \App\Http\Controllers\Api\ItemController;
+use \App\Http\Controllers\Api\OrderItemController;
+use \App\Http\Controllers\Api\AccountController;
+use \App\Http\Controllers\Api\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,15 +18,11 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    // return view('login');
+    return redirect('home');
 });
 
 Auth::routes();
-
-// Route::view('register', 'register')
-// 	->name('register')
-// 	->middleware('auth')
-// ;
 
 Route::view('home', 'home')
 	->name('home')
@@ -72,4 +74,38 @@ Route::view('reports', 'reports')
 	->middleware('auth')
 ;
 
+// Route::post('register', function() {
+// 	dd('okay');
+// });
+
 // Route::get('/home', 'HomeController@index')->name('home');
+// api
+Route::get('api/orders', 'Api\OrderController@index');
+Route::get('api/orders/{order}', 'Api\OrderController@show');
+Route::post('api/orders', 'Api\OrderController@store');
+Route::put('api/orders/{order}', 'Api\OrderController@update');
+Route::delete('api/orders/{order}', 'Api\OrderController@delete');
+
+Route::get('api/expenses', 'Api\ExpenseController@index');
+Route::get('api/expenses/{expense}', 'Api\ExpenseController@show');
+Route::post('api/expenses', 'Api\ExpenseController@store');
+Route::put('api/expenses/{expense}', 'Api\ExpenseController@update');
+Route::delete('api/expenses/{expense}', 'Api\ExpenseController@delete');
+
+Route::get('api/items', 'Api\ItemController@index');
+Route::get('api/items/{item}', 'Api\ItemController@show');
+Route::post('api/items', 'Api\ItemController@store');
+Route::put('api/items/{item}', 'Api\ItemController@update');
+Route::delete('api/items/{item}', 'Api\ItemController@delete');
+
+Route::get('api/accounts', 'Api\AccountController@index');
+Route::get('api/accounts/{account}', 'Api\AccountController@show');
+Route::post('api/accounts', 'Api\AccountController@store');
+Route::put('api/accounts/{account}', 'Api\AccountController@update');
+Route::delete('api/accounts/{account}', 'Api\AccountController@delete');
+
+Route::get('api/settings', 'Api\SettingController@index');
+Route::get('api/settings/{setting}', 'Api\SettingController@show');
+Route::post('api/settings', 'Api\SettingController@store');
+Route::put('api/settings/{setting}', 'Api\SettingController@update');
+Route::delete('api/settings/{setting}', 'Api\SettingController@delete');

@@ -1,9 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
+
+    <!-- DataTables CSS -->
+    <link href="vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Tables</h1>
+                    <h1 class="page-header">Users</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -12,27 +18,27 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            DataTables Advanced Tables
+                                <a href="#" id="new-user-btn" class="btn btn-lg btn-success btn-block">Add New</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                        <th>CSS grade</th>
+                                        <th>Last Name</th>
+                                        <th>First Name</th>
+                                        <th>Phone Number</th>
+                                        <th>Role</th>
+                                        <th>User Type</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="user-list">
                                     <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
+                                        <td class="last_name"></td>
+                                        <td class="first_name"></td>
+                                        <td class="phone"></td>
+                                        <td class="center"></td>
+                                        <td class="center"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -46,4 +52,20 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+@endsection
+
+@section('scripts')
+
+    <!-- DataTables JavaScript -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
+     <!-- <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script> -->
 @endsection

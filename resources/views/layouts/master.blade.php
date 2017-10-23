@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Accounting') }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,20 @@
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+
+
+        .modal-body, .modal-footer {
+            width: 70%;
+            background: #fff;
+            margin: auto;
+        }
+        .modal-body {
+            margin-top:3%;
+            max-height: 80%;
+            overflow: auto;
+        }
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,7 +62,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">{{ config('app.name', 'Laravel') }}</a>
+                <a class="navbar-brand" href="index.html">{{ config('app.name', 'Accounting') }}</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -88,23 +102,23 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ route('home') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Orders</a>
+                            <a href="{{ route('orders') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Orders</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Expenses</a>
+                            <a href="{{ route('expenses') }}"><i class="fa fa-table fa-fw"></i> Expenses</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Inventory</a>
+                            <a href="{{ route('inventory') }}"><i class="fa fa-edit fa-fw"></i> Inventory</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Users</a>
+                            <a href="{{ route('employees') }}"><i class="fa fa-wrench fa-fw"></i> Users</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Settings</a>
+                            <a href="{{ route('settings') }}"><i class="fa fa-sitemap fa-fw"></i> Settings</a>
                         </li>
                     </ul>
                 </div>
@@ -115,7 +129,7 @@
 
         <div id="page-wrapper">
         @yield('content')
-        
+
         </div>
         <!-- /#page-wrapper -->
 
@@ -135,6 +149,23 @@
     <script src="vendor/raphael/raphael.min.js"></script>
     <script src="vendor/morrisjs/morris.min.js"></script>
     <script src="data/morris-data.js"></script>
+    @yield('scripts')
+        <!-- Dashboard files -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="vendor/jquery.cookie.js" type="text/javascript"></script>
+    <!-- <script src="../js/vendor/jquery.ba-hashchange.min.js" type="text/javascript"></script> -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript" src="js/bootbox.min.js"></script>
+    <script type="text/javascript" src="js/dashboard-ui/dashboard-ui.js"></script>
+    <script type="text/javascript" src="js/dashboard-ui/dashboard-storage.js"></script>
+    <script type="text/javascript" src="js/dashboard-ui/dashboard-form.js"></script>
+    <script type="text/javascript" src="js/dashboard-ui/dashboard-datatable.js"></script>
+    <script type="text/javascript" src="js/dashboard-ui/dashboard-response.js"></script>
+    <script type="text/javascript" src="js/dashboard-ui/modal-form.js"></script>
+
+    <script type="text/javascript" src="js/dashboard-ui/pagination.js"></script>
+
 
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>

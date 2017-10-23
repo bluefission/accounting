@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-	DashboardUI.home = 'start.html';
+	DashboardUI.home = 'home';
 	DashboardUI.init();
-	SiteController.init();
+	// SiteController.init();
 });

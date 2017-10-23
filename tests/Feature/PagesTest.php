@@ -13,7 +13,12 @@ class PagesTest extends TestCase
      * @return void
      */
 
-    public function TestLoginPageCodeIs200()
+    public function setup() {
+        parent::setup();
+        $user = new \App\User(array('name' => 'John')); $this->be($user);
+    }
+
+    public function testLoginPageCodeIs200()
     {
 
         $response = $this->get('/');
@@ -21,7 +26,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function TestDashboardPageCodeIs200()
+    public function testDashboardPageCodeIs200()
     {
 
         $response = $this->get('/home');
@@ -29,7 +34,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function TestSettingsPageCodeIs200()
+    public function testSettingsPageCodeIs200()
     {
 
         $response = $this->get('/settings');
@@ -45,7 +50,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function TestInventoryPageCodeIs200()
+    public function testInventoryPageCodeIs200()
     {
 
         $response = $this->get('/inventory');
@@ -53,7 +58,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function TestExpensesPageCodeIs200()
+    public function testExpensesPageCodeIs200()
     {
 
         $response = $this->get('/expenses');
@@ -61,7 +66,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
     }
 
-    // public function TestSalariesPageCodeIs200()
+    // public function testSalariesPageCodeIs200()
     // {
 
     //     $response = $this->get('/salaries');
@@ -69,7 +74,7 @@ class PagesTest extends TestCase
     //     $response->assertStatus(200);
     // }
 
-    public function TestEmployeesPageCodeIs200()
+    public function testEmployeesPageCodeIs200()
     {
 
         $response = $this->get('/employees');
@@ -77,7 +82,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function TestCustomersPageCodeIs200()
+    public function testCustomersPageCodeIs200()
     {
 
         $response = $this->get('/customers');
@@ -85,7 +90,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function TestReportsPageCodeIs200()
+    public function testReportsPageCodeIs200()
     {
 
         $response = $this->get('/reports');
