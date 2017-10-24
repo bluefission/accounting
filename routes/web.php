@@ -54,6 +54,11 @@ Route::view('inventory', 'inventory')
 	->middleware('auth')
 ;
 
+Route::view('catalog', 'catalog')
+	->name('catalog')
+	->middleware('auth')
+;
+
 Route::view('expenses', 'expenses')
 	->name('expenses')
 	->middleware('auth')
@@ -88,6 +93,8 @@ Route::view('reports', 'reports')
 Route::get('api/orders', 'Api\OrderController@index');
 Route::get('api/orders/{order}', 'Api\OrderController@show');
 Route::post('api/orders', 'Api\OrderController@store');
+Route::post('api/orders/add', 'Api\OrderController@add');
+Route::post('api/orders/edit', 'Api\OrderController@edit');
 Route::put('api/orders/{order}', 'Api\OrderController@update');
 Route::delete('api/orders/{order}', 'Api\OrderController@delete');
 

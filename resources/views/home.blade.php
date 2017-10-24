@@ -17,7 +17,7 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge">{{ \App\User::count('id') }}</div>
                                     <div>Customers</div>
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge">{{ \App\LineItem::where('entry_type', 'Credit')->count('amount') }}</div>
                                     <div>Orders</div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge">{{ \App\LineItem::where('entry_type', 'Credit')->sum('amount') }}</div>
                                     <div>Revenue</div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge">{{ \App\LineItem::where('entry_type', 'Credit')->avg('amount') }}</div>
                                     <div>Average Sale</div>
                                 </div>
                             </div>
@@ -143,48 +143,8 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <i class="fa fa-comment fa-fw"></i> New Task
                                     <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
                                     </span>
                                 </a>
                             </div>
@@ -198,4 +158,88 @@
                 <!-- /.col-lg-4 -->
             </div>
             <!-- /.row -->
+@endsection
+
+@section('scripts')
+<script>
+$(function() {
+
+    Morris.Area({
+        element: 'morris-area-chart',
+        data: [
+        {
+            period: '2017-20-10',
+            sales: 0
+        }
+        @foreach ( \App\LineItem::where('entry_type', 'Credit')->distinct('created_at')->orderBy('created_at', 'asc')->orderBy('amount', 'desc')->get() as $line_item)
+        ,{
+            period: '{{ date("Y-m-d G:i:s", strtotime($line_item->created_at)) }}',
+            sales: {{ $line_item->amount }}
+        }
+        @endforeach
+        ],
+        xkey: 'period',
+        ykeys: ['sales'],
+        labels: ['Revenue'],
+        pointSize: 2,
+        hideHover: 'auto',
+        resize: true
+    });
+
+    Morris.Donut({
+        element: 'morris-donut-chart',
+        data: [{
+            label: "Download Sales",
+            value: 12
+        }, {
+            label: "In-Store Sales",
+            value: 30
+        }, {
+            label: "Mail-Order Sales",
+            value: 20
+        }],
+        resize: true
+    });
+
+    Morris.Bar({
+        element: 'morris-bar-chart',
+        data: [{
+            y: '2006',
+            a: 100,
+            b: 90
+        }, {
+            y: '2007',
+            a: 75,
+            b: 65
+        }, {
+            y: '2008',
+            a: 50,
+            b: 40
+        }, {
+            y: '2009',
+            a: 75,
+            b: 65
+        }, {
+            y: '2010',
+            a: 50,
+            b: 40
+        }, {
+            y: '2011',
+            a: 75,
+            b: 65
+        }, {
+            y: '2012',
+            a: 100,
+            b: 90
+        }],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Series A', 'Series B'],
+        hideHover: 'auto',
+        resize: true
+    });
+    
+});
+
+</script>
 @endsection

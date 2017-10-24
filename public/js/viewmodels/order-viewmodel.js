@@ -1,14 +1,14 @@
 function OrderViewModel(view) {
-	this.OrderView = view;
+    this.OrderView = view;
     this.OrderData = {};
-	this.CurrentSubData = [];
+    this.CurrentSubData = [];
     this.ForeignTableDataList1 = [];
     this.ForeignTableDataList2 = [];
 
     this.Skip = 0;
     this.Take = 100;
 
-	// Object.defineProperty(this, 'Text_Sample', {
+    // Object.defineProperty(this, 'Text_Sample', {
  //        get: function()
  //        {
  //            return PetricsApp.GetLocalizedText(I18NToken.NewToken_DeclareMe, "Sample");
@@ -17,10 +17,11 @@ function OrderViewModel(view) {
 }
 
 OrderViewModel.prototype.Start = function() {
-	this.GetOrdersAsync();
+    this.GetOrdersAsync();
+    this.GetForeignTableDataList1Async()
 };
 OrderViewModel.prototype.SearchOrders = function( keyword ) {
-	AccountingApp.OrdersFindAsync(keyword, this.OnOrdersRetrieved.bind(this) );
+    AccountingApp.OrdersFindAsync(keyword, this.OnOrdersRetrieved.bind(this) );
 };
 
 OrderViewModel.prototype.LoadData = function() {
@@ -32,7 +33,7 @@ OrderViewModel.prototype.GetOrdersAsync = function () {
 };
 
 OrderViewModel.prototype.GetForeignTableDataList1Async = function () {
-    AccountingApp.OrdersGetAsync(this.Skip, this.Take, this.OnForeignTableDataList1Retrieved.bind(this));
+    AccountingApp.ItemsGetAsync(this.Skip, this.Take, this.OnForeignTableDataList1Retrieved.bind(this));
 };
 
 OrderViewModel.prototype.GetForeignTableDataList2Async = function () {
@@ -41,7 +42,7 @@ OrderViewModel.prototype.GetForeignTableDataList2Async = function () {
 
 // Async Callbacks
 OrderViewModel.prototype.OnForeignTableDataList1Retrieved = function(data) {
-    this.ForeignTableDataList1 = data.responseJSON.items;
+    this.ForeignTableDataList1 = data.responseJSON;
     this.OrderView.BindData();
 };
 
@@ -51,14 +52,14 @@ OrderViewModel.prototype.OnForeignTableDataList2Retrieved = function(data) {
 };
 
 OrderViewModel.prototype.OnOrdersRetrieved = function(data, status) {
-	try {
-		data = data.responseJSON;
-		
+    try {
+        data = data.responseJSON;
+        
         //this.Orders = data.items
         this.OrderData = data;
 
-	    this.OrderView.BindData();
+        this.OrderView.BindData();
     } catch( ex ) {
-    	console.log(ex);
+        console.log(ex);
     }
 };

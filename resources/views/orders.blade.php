@@ -18,7 +18,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                                <a href="#" id="new-user-btn" class="btn btn-lg btn-success btn-block">Add New</a>
+                                <a href="#" id="new-order-btn" class="btn btn-lg btn-success btn-block">Add New</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -26,17 +26,15 @@
                                 <thead>
                                     <tr>
                                         <th>Date</th>
-                                        <th>Customer Name</th>
-                                        <th>Customer Email</th>
-                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Total</th>
                                     </tr>
                                 </thead>
                                 <tbody id="order-list">
                                     <tr class="table-row gradeX">
-                                        <input type="hidden" name="item_id">
+                                        <input type="hidden" class="item-id" name="item_id">
                                         <td class="created_at"></td>
-                                        <td class="name"></td>
-                                        <td class="email"></td>
+                                        <td class="status"></td>
                                         <td class="total"></td>
                                     </tr>
                                 </tbody>
@@ -51,6 +49,66 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+
+            <div style="display:none;" >
+              <div id="order-edit">
+                <div class="x_content">
+                  <br />
+                  <form id="order-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <!-- <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="created_at">Date<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="created_at" required="required" class="created_at form-control col-md-7 col-xs-12">
+                      </div>
+                    </div> -->
+                    <div class="form-group">
+                      {{ csrf_field() }}
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">Status<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select name="status" class="status form-control" required>
+                          <option value="Pending">Pending</option>
+                          <option value="Processing">Processing</option>
+                          <option value="Done">Done</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="total">Item<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select name="item" class="item form-control" required>
+                          <option value="">Choose an item...</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="quantity">Quantity<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="quantity" required="required" class="quantity form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="notes">Notes<span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="notes" required="required" class="notes form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group control-buttons" style="display:none;">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-primary btn-cancel" type="button">Cancel</button>
+                        <button type="submit" id="save-line-item-btn" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
 @endsection
 
 @section('scripts')

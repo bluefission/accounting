@@ -84,11 +84,14 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="entry_type">Type <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select name="entry_type" class="entry_type form-control" required>
-                          <option value="">Choose..</option>
-                          <option value="Debit">Debit</option>
-                          <option value="Credit">Credit</option>
-                        </select>
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="entry_type" id="optionsRadiosInline1" value="Credit" checked="">Credit
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="entry_type" id="optionsRadiosInline2" value="Debit">Debit
+                            </label>
+                        </div>
                       </div>
                     </div>
                     <div class="ln_solid"></div>

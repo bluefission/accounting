@@ -129,7 +129,7 @@ LineItemManageController.prototype.OnObjectSave = function () {
         item.id = null;
         result = AccountingApp.LineItemCreateUnSafe(item);
     } else {
-        result = AccountingApp.AccountUpdateUnSafe(item);
+        result = AccountingApp.LineItemUpdateUnSafe(item);
     }
         
     if (result.success === true) {

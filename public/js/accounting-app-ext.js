@@ -47,7 +47,7 @@ AccountingApp.OrderDeleteUnSafe = function(item, onFetching) {
 AccountingApp.OrderCreateUnSafe = function(item, onFetching) {
     return this.PostItemUnSafeAsync(onFetching, function()
     {
-        var result = this.PostAsync('orders',item);
+        var result = this.PostAsync('orders', item);
         if(result.success)
         {
 
@@ -71,6 +71,30 @@ AccountingApp.OrdersGetAsync = function(skip, take, onFetched, onFetching) {
     // result.success = onFetched;
 
     return result;
+};
+
+AccountingApp.OrderAdd = function(item, onFetching) {
+    return this.PostItemUnSafeAsync(onFetching, function()
+    {
+        var result = this.PostAsync('orders/add', item);
+        if(result.success)
+        {
+
+        }
+        return result;
+    }.bind(this));
+};
+
+AccountingApp.OrderEdit = function(item, onFetching) {
+    return this.PostItemUnSafeAsync(onFetching, function()
+    {
+        var result = this.PostAsync('orders/edit', item);
+        if(result.success)
+        {
+
+        }
+        return result;
+    }.bind(this));
 };
 
 
@@ -240,6 +264,65 @@ AccountingApp.ItemsGetAsync = function(skip, take, onFetched, onFetching) {
         AsyncCallbackQueue.complete.push(onFetched);
 
     var result = this.GetAsync('items', skip, take);
+    // result.success = onFetched;
+
+    return result;
+};
+
+
+
+
+
+// Supply Methods
+// -------
+
+AccountingApp.SuppliesFindAsync = function (supply_id, onFetched) {
+
+    if (onFetched !== null)
+        AsyncCallbackQueue.complete.push(onFetched);
+
+    var result = this.FindAsync('supplies', supply_id);
+    // result.success = onFetched;
+
+    return result;
+};
+
+AccountingApp.SupplyUpdateUnSafe = function(supply, onFetching) {
+    return this.PostSupplyUnSafeAsync(onFetching, function ()
+    {
+        var result = this.UpdateAsync('supplies', supply);
+        if(result.success)
+        {
+
+        }
+        return result;
+    }.bind(this));
+};
+
+AccountingApp.SupplyCreateUnSafe = function(supply, onFetching) {
+    return this.PostSupplyUnSafeAsync(onFetching, function()
+    {
+        var result = this.PostAsync('supplies',supply);
+        if(result.success)
+        {
+
+        }
+        return result;
+    }.bind(this));
+};
+
+AccountingApp.SuppliesGetAsync = function(skip, take, onFetched, onFetching) {
+    if (skip === null) {
+        skip = 0;
+    }
+    if (take === null) {
+        take = 100;
+    }
+
+    if (onFetched !== null)
+        AsyncCallbackQueue.complete.push(onFetched);
+
+    var result = this.GetAsync('supplies', skip, take);
     // result.success = onFetched;
 
     return result;

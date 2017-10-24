@@ -90,7 +90,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
+                        <li class="sidebar-search" style="display:none;">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -107,16 +107,22 @@
                         <li>
                             <a href="{{ route('ledger') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Ledger</a>
                         </li>
-                        
+                        <li>
+                            <a href="{{ route('orders') }}"><i class="fa fa-shopping-cart fa-fw"></i> Orders</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('catalog') }}"><i class="fa fa-list fa-fw"></i> Catalog</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('reports') }}"><i class="fa fa-page fa-fw"></i> Reports</a>
+                        </li>
                         <!--
                         <li>
-                            <a href="{{ route('orders') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Orders</a>
+                            <a href="{{ route('inventory') }}"><i class="fa fa-list fa-fw"></i> Inventory</a>
                         </li>
+                        
                         <li>
                             <a href="{{ route('expenses') }}"><i class="fa fa-table fa-fw"></i> Expenses</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('inventory') }}"><i class="fa fa-edit fa-fw"></i> Inventory</a>
                         </li>
                         <li>
                             <a href="{{ route('employees') }}"><i class="fa fa-wrench fa-fw"></i> Users</a>
@@ -153,7 +159,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="vendor/raphael/raphael.min.js"></script>
     <script src="vendor/morrisjs/morris.min.js"></script>
-    <script src="data/morris-data.js"></script>
+    <!-- <script src="data/morris-data.js"></script> -->
     @yield('scripts')
         <!-- Dashboard files -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
